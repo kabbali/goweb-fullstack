@@ -1,3 +1,4 @@
+// Package app provides entry point
 package app
 
 import (

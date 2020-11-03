@@ -1,3 +1,4 @@
+// Package controllers holds handlers functions
 package controllers
 
 import (
@@ -25,9 +26,12 @@ func Ping(w http.ResponseWriter, r *http.Request) {
 	} else if r.URL.Path == "/ping" {
 		fmt.Fprint(w, "<h1>Pong</h1>")
 	} else if r.URL.Path == "/contact" {
-		fmt.Fprint(w, "To get in touch, please contact me by e-mail" +
+		fmt.Fprint(w, "To get in touch, please contact me by e-mail"+
 			" to <a href=\"mailto:support@kabbali.con\">support@kabbali.com</a>.")
+	} else {
+		w.WriteHeader(http.StatusNotFound)
+		fmt.Fprint(w, "<h1>We could not find the page you were looking for :(</h1>"+
+			"<p>Please e-mail us if you bein sent to an invalid page.</p>")
 	}
-
 
 }
